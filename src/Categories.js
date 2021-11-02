@@ -1,7 +1,14 @@
 import React from 'react';
 
-const Categories = () => {
-  return <h2>categories component</h2>;
+const Categories = ({categories, filterItems}) => {
+  return <div className="btn-container">
+    {categories.map((category, index)=>{
+      // Since we're dealing with an array, we want to use a key.
+      return <button type="button" className="filter-btn" key={index} onClick={()=> filterItems(category)}>
+        {category}
+      </button>
+    })}
+  </div>;
 };
 
 export default Categories;
